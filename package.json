@@ -1,0 +1,43 @@
+{
+  "name": "tfk-api-tasks",
+  "version": "1.0.0",
+  "description": "Simple tasks api for Telemark fylkeskommune",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "bugs": {
+    "url": "https://github.com/telemark/tfk-api-tasks/issues"
+  },
+  "homepage": "https://github.com/telemark/tfk-api-tasks",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "scripts": {
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "start": "node standalone.js",
+    "setup": "npm install && node setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/telemark/tfk-api-tasks.git"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "standard": "^5.4.1",
+    "tap": "^2.3.1"
+  },
+  "dependencies": {
+    "hapi": "^11.1.2",
+    "inert": "^3.2.0",
+    "joi": "^7.0.1",
+    "lout": "^7.2.0",
+    "mongojs": "^1.4.1",
+    "vision": "^4.0.1"
+  }
+}
