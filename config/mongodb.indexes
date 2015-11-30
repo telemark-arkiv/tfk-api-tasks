@@ -1,0 +1,5 @@
+db.tasks.ensureIndex({'name': 'text', 'name': 'text'}, {'default_language': 'nb'})
+
+db.tasks.ensureIndex({'user': 1})
+
+db.tasks.ensureIndex({'system': 1})
