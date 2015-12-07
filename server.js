@@ -37,9 +37,8 @@ server.register([
 })
 
 server.register(require('hapi-auth-jwt2'), function (err) {
-
-  if(err){
-    console.log(err);
+  if (err) {
+    console.log(err)
   }
 
   server.auth.strategy('jwt', 'jwt',
@@ -55,7 +54,7 @@ server.register({
   register: require('yar'),
   options: yarOptions
 }, function (err) {
-  if(err){
+  if (err) {
     console.log(err)
   }
 })

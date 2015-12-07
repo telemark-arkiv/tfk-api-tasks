@@ -48,7 +48,7 @@ function addTask (request, reply) {
   var payload = request.payload
   payload.createdAt = now
   payload.modifiedAt = now
-  tasks.save(payload, function(error, data) {
+  tasks.save(payload, function (error, data) {
     reply(error || data)
   })
 }
@@ -57,7 +57,7 @@ function updateTask (request, reply) {
   var taskID = mongojs.ObjectId(request.params.taskID)
   var payload = request.payload
   payload.modifiedAt = new Date()
-  tasks.update({'_id': taskID}, payload, function(error, data) {
+  tasks.update({'_id': taskID}, {$set: payload}, function (error, data) {
     reply(error || data)
   })
 }

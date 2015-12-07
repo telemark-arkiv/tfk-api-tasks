@@ -44,15 +44,7 @@ var routes = [
     }
   },
   {
-    method: 'PUT',
-    path: '/tasks/{taskID}',
-    config: {
-      handler: handlers.updateTask,
-      description: 'Update task'
-    }
-  },
-  {
-    method: 'UPDATE',
+    method: 'POST',
     path: '/tasks/{taskID}',
     config: {
       handler: handlers.updateTask,
