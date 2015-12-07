@@ -1,4 +1,4 @@
-db.tasks.ensureIndex({'name': 'text', 'name': 'text'}, {'default_language': 'nb'})
+db.tasks.ensureIndex({'name': 'text'}, {'default_language': 'nb'})
 
 db.tasks.ensureIndex({'user': 1})
 
