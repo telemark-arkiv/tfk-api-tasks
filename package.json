@@ -21,7 +21,8 @@
     "coverage": "tap test/*.js --coverage",
     "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
     "start": "node standalone.js",
-    "setup": "npm install && node setup.js"
+    "setup": "npm install && node setup.js",
+    "generate": "node utils/generateTestToken.js"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,13 @@
   },
   "dependencies": {
     "hapi": "^11.1.2",
+    "hapi-auth-jwt2": "^5.2.1",
     "inert": "^3.2.0",
     "joi": "^7.0.1",
+    "jsonwebtoken": "^5.4.1",
     "lout": "^7.2.0",
     "mongojs": "^1.4.1",
-    "vision": "^4.0.1"
+    "vision": "^4.0.1",
+    "yar": "^5.0.0"
   }
 }

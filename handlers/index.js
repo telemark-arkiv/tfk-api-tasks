@@ -1,15 +1,25 @@
 'use strict'
 
+var mongojs = require('mongojs')
+var config = require('../config')
+var db = mongojs(config.DB_CONNECTION)
+var tasks = db.collection('tasks')
+
 function getFrontpage (request, reply) {
   reply({
-    message: 'nothing to see here! go home'
+    message: 'nothing to see here! go home',
+    whoami: request.session.get('whoami')
   })
 }
 
 function getTasks (request, reply) {
-  reply({
-    message: 'getTasks - Not yet implemented'
-  })
+  var whoami = request.session.get('whoami')
+  var user = whoami.user
+  tasks.find({'user': user},
+    function findTasks (error, data) {
+      reply(error || data)
+    }
+  )
 }
 
 function searchTasks (request, reply) {
