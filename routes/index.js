@@ -21,7 +21,7 @@ var routes = [
   },
   {
     method: 'GET',
-    path: '/tasks/search/{query}',
+    path: '/tasks/search/{searchText}',
     config: {
       handler: handlers.searchTasks,
       description: 'List all tasks'

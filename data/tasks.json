@@ -3,12 +3,14 @@
     "name": "Just a simple task",
     "system": "visma",
     "url": "https://minside.login.top.no",
-    "user": "bob"
+    "user": "bob",
+    "createdAt": "2015-12-07T12:50:22.745Z"
   },
   {
     "name": "Another simple task",
     "system": "compilio",
     "url": "https://tfk.klos7.no",
-    "user": "bob"
+    "user": "bob",
+    "createdAt": "2015-12-07T12:50:51.752Z"
   }
 ]

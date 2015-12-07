@@ -23,33 +23,52 @@ function getTasks (request, reply) {
 }
 
 function searchTasks (request, reply) {
-  reply({
-    message: 'searchTasks - Not yet implemented'
-  })
+  var whoami = request.session.get('whoami')
+  var user = whoami.user
+  tasks.find({'user': user, '$text': {'$search': request.params.searchText}},
+    function findTasks (error, data) {
+      reply(error || data)
+    }
+  )
 }
 
 function getTask (request, reply) {
-  reply({
-    message: 'getTask - Not yet implemented'
-  })
+  var whoami = request.session.get('whoami')
+  var user = whoami.user
+  var taskID = mongojs.ObjectId(request.params.taskID)
+  tasks.find({'_id': taskID, 'user': user},
+    function findTasks (error, data) {
+      reply(error || data)
+    }
+  )
 }
 
 function addTask (request, reply) {
-  reply({
-    message: 'addTask - Not yet implemented'
+  var now = new Date()
+  var payload = request.payload
+  payload.createdAt = now
+  payload.modifiedAt = now
+  tasks.save(payload, function(error, data) {
+    reply(error || data)
   })
 }
 
 function updateTask (request, reply) {
-  reply({
-    message: 'updateTask - Not yet implemented'
+  var taskID = mongojs.ObjectId(request.params.taskID)
+  var payload = request.payload
+  payload.modifiedAt = new Date()
+  tasks.update({'_id': taskID}, payload, function(error, data) {
+    reply(error || data)
   })
 }
 
 function deleteTask (request, reply) {
-  reply({
-    message: 'deleteTask - Not yet implemented'
-  })
+  var taskID = mongojs.ObjectId(request.params.taskID)
+  tasks.remove({'_id': taskID},
+    function deleteTask (error, data) {
+      reply(error || data)
+    }
+  )
 }
 
 module.exports.getFrontpage = getFrontpage
