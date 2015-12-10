@@ -14,8 +14,8 @@ function getFrontpage (request, reply) {
 
 function getTasks (request, reply) {
   var whoami = request.session.get('whoami')
-  var user = whoami.user
-  tasks.find({'user': user},
+  var uid = whoami.uid
+  tasks.find({'uid': uid},
     function findTasks (error, data) {
       reply(error || data)
     }
@@ -24,8 +24,8 @@ function getTasks (request, reply) {
 
 function searchTasks (request, reply) {
   var whoami = request.session.get('whoami')
-  var user = whoami.user
-  tasks.find({'user': user, '$text': {'$search': request.params.searchText}},
+  var uid = whoami.uid
+  tasks.find({'uid': uid, '$text': {'$search': request.params.searchText}},
     function findTasks (error, data) {
       reply(error || data)
     }
@@ -34,9 +34,9 @@ function searchTasks (request, reply) {
 
 function getTask (request, reply) {
   var whoami = request.session.get('whoami')
-  var user = whoami.user
+  var uid = whoami.uid
   var taskID = mongojs.ObjectId(request.params.taskID)
-  tasks.find({'_id': taskID, 'user': user},
+  tasks.find({'_id': taskID, 'uid': uid},
     function findTasks (error, data) {
       reply(error || data)
     }
