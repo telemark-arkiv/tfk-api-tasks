@@ -1,4 +1,6 @@
 # tfk-api-tasks
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/tfk-api-tasks.svg)](https://greenkeeper.io/)
 Simple tasks api for Telemark fylkeskommune
 
 ## Testing
